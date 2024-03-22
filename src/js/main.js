@@ -1,13 +1,24 @@
-// Создаем пустой массив для списка дел
-let todoList = [];
-// Добавление задачи в список
-function addTask(task) {
-  todoList.push(task); 
+// // Создаем пустой массив для списка дел
+// let todoList = [];
+// // Добавление задачи в список
+// function addTask(task) {
+//   todoList.push(task); 
+// }
+// // пример добавления задачи в списокы
+// addTask('Выполнил задание');
+
+
+// // просмотр списка дел
+// console.log(todoList);
+
+
+const todoList = {
+  task:[],
+
+  addTask: function(taskDescription) {
+    const task = {
+      
+    }
+  }
 }
-// привер добавления задачи в список
-addTask('Выполнил задание');
-
-
-// просмотр списка дел
-console.log(todoList);
 
