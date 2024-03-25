@@ -3,18 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List</title>
+    <link rel="stylesheet" href="/src/style/style.scss">
+    <title>ToDo - Лист</title>
 </head>
 <body>
-    <section class="todos">
-        <div class="todos-title"><h1>todos</h1></div>
-        
+    
+    <section class="container">
+        <div class="title">
+            <h1 class="title-text">todos</h1>
+        </div>
+        <div class="content">
+            <div class="content-text_icon">
+                <input id="inputTasks" type="text" placeholder="Введите задачу">
+                <span class="content-text_aicon">
+                    <img class="icon" src="/src/img/strelka.png" alt="Стрелка">
+                </span>
+                <button id="buttonAdd">Добавить задачу</button>
+            </div>
+            
+            
+            <div id="text"></div>
+            <div class="content-option">
+                <option class="content-option-item" value="all">All</option>
+                <option class="content-option-item" value="active">Active</option>
+                <option class="content-option-item" value="completed">Completed</option>
+                <option class="content-option-item" value="clearComplited">Clear completed</option>
+            </div>
+            <ul class="content-items" data-content-options="active"></ul>
+        </div>
     </section>
+    
 
 
 
 
 
-    <script src="/src/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+
+    <script src="/js/main.js"></script>
 </body>
 </html>
