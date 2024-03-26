@@ -1,0 +1,82 @@
+
+.content-items {
+    display: block;
+    
+    
+
+}
+
+
+li {
+    width: 425px;
+    height: 46px;
+    background-color: var(--main-white);
+    margin-left: 20px;
+    border-bottom: 1px solid var(--main-grey);
+    position: relative;
+    
+}
+
+.lable-check {
+    
+    
+}
+
+
+.check {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--main-grey);
+    border-radius: 50%;
+    position: absolute;
+    top: 9px;
+    left: 3px;
+    cursor: pointer;
+    
+}
+.check:checked {
+    background-image: url(../../img/galka.svg);
+}
+
+
+
+.text {
+    display: inline-block;
+    margin-left: 42px;
+    margin-top: 13px;
+}
+
+// .label {
+//     position: relative;
+//     cursor: pointer;
+// }
+
+// .checkbox {
+//     -webkit-appearance: none;
+//     appearance: none;
+//     position: absolute;
+//     top: 0px;
+//     left: -32px;
+//     content: '';
+//     width: 20px;
+//     height: 20px;
+//     border: 2px solid white;
+//     margin-right: 8px;
+//     background-repeat: no-repeat;
+//     background-position: center center;
+//     cursor: pointer;
+// }
+
+// .checkbox:focus {
+//     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+// }
+
+// .checkbox:hover {
+//     border-color: #b3d7ff;
+// }
+
+// .checked {
+//     background-image: url("../../../public/image/Checked.png");
+// }
