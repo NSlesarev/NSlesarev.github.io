@@ -17,12 +17,6 @@ li {
     
 }
 
-.lable-check {
-    
-    
-}
-
-
 .check {
     -webkit-appearance: none;
     appearance: none;
@@ -43,40 +37,13 @@ li {
 
 
 .text {
+    font-family: 'Abel';
     display: inline-block;
     margin-left: 42px;
     margin-top: 13px;
+        
 }
-
-// .label {
-//     position: relative;
-//     cursor: pointer;
-// }
-
-// .checkbox {
-//     -webkit-appearance: none;
-//     appearance: none;
-//     position: absolute;
-//     top: 0px;
-//     left: -32px;
-//     content: '';
-//     width: 20px;
-//     height: 20px;
-//     border: 2px solid white;
-//     margin-right: 8px;
-//     background-repeat: no-repeat;
-//     background-position: center center;
-//     cursor: pointer;
-// }
-
-// .checkbox:focus {
-//     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-// }
-
-// .checkbox:hover {
-//     border-color: #b3d7ff;
-// }
-
-// .checked {
-//     background-image: url("../../../public/image/Checked.png");
-// }
+.box > .check:checked + p {
+    color: var(--main-grey);
+    text-decoration: line-through;
+}
