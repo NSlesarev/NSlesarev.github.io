@@ -5,11 +5,10 @@
     flex-direction: column;
     display: flex;
     max-width: 470px;
-  
+    box-shadow: 0 0 15px 4px #5d5d5c;
     background-color: rgb(227, 232, 237);
     border-radius: 20px;
     margin-top: 50px;
-    // transition: 1s;
     
     
 }
@@ -22,14 +21,22 @@
     font-size: 50px;
     font-family: 'Abel';
     font-weight: 400;
-    color: rgb(244, 213, 238);
+    
+    color: rgb(18, 18, 18);
     cursor: default;
 }
 
 #inputTasks {
-    width: 380px;
+    width: 385px;
     margin-left: 20px;
     height: 40px;
+    border: initial;
+    transition: .4s;
+    &:focus-visible {
+      border-radius: 20px 20px 0px 0px;
+      outline: none;
+    }
+    
 }
 #inputTasks[type=text] {
   padding-left: 40px;
@@ -48,17 +55,27 @@
     right: 430px;
     width: 10px;
     cursor: pointer;
+    transition: transform .3s ease;
+    &:hover {
+        transform: scale(1.7);
+    
+    }
 }
 
 
 #buttonAdd {
   position: absolute;
-  right: 35px;
-  top: 10px;
-  padding: 5px;
-  border-radius: 5px;
+  right: 32px;
+  background-color: #f4f4f4;
+  top: 3px;
+  font-family: 'Castoro Titling';
+  font-style: normal;
+  font-weight: 400;
+  padding: 8px;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
+  transition: .3s;
   &:hover {
     color: rgb(97, 99, 99);
   }
@@ -78,6 +95,7 @@
   margin-bottom: 10px;
   align-items: center;
   margin-left: 150px;
+  position: relative;
   
   
   
@@ -94,12 +112,30 @@
   
 }
 
-// [data-content-options='all'] .todo-item:not([data-content-state='all']),
-// [data-content-options='active'] .todo-item:not([data-content-state='active']),
-// [data-content-options='completed'] .todo-item:not([data-content-state='completed']),
-// [data-content-options='ClearCompleted'] .todo-item:not([data-content-state='Clear completed']), {
-//   // display: none;
-// }
+
+
+.content-num {
+position: absolute;
+width: 70px;
+right: 369px;
+top: 6px;
+}
+
+
+
+.content-deletAll {
+  width: 20px;
+  position: absolute;
+  right: 150px;
+  top: 9px;
+  cursor: pointer;
+    transition: transform .3s ease;
+    &:hover {
+        transform: scale(1.5);
+    
+    }
+    
+}
 
 
 
