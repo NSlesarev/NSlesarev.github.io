@@ -12,7 +12,7 @@
             <h1 class="title-text">todos</h1>
         </div>
         <div class="content">
-            <div class="content-text_icon">
+            <div class="content-text__icon">
                 <input id="inputTasks" type="text" placeholder="Введите задачу">
                 <span class="content-text_aicon">
                     <img class="icon" src="/src/img/strelka.png" alt="Стрелка">
@@ -20,14 +20,14 @@
                 <img src="/src/img/deletAll.png" class="content-deletAll" ></img>
                 <button id="buttonAdd">Добавить задачу</button>
             </div>
-            
-            <ul class="content-items"></ul>
-            
+            <div class="content-ul">
+                <ul class="content-items"></ul>
+            </div>
             <div class="content-option">
                 <div class="content-num">0 items left</div>
                 <option class="content-option-item" id="all">All</option>
                 <option class="content-option-item" id="active">Active</option>
-                <option class="completed">Completed</option>
+                <option class="content-option-item" id="completed">Completed</option>
                 <option class="content-option-item" id="clearComplited">Clear completed</option>
             </div>
         </div>
