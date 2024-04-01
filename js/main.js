@@ -28,11 +28,13 @@ buttonAdd.addEventListener("click", function () {
     contentItems: inputTasks.value,
     checked: false,
   };
+  if (inputTasks.value === "") {
 
-  // добавляем обьекты в массив
-  tasks.unshift(obj);
+  } else (tasks.unshift(obj));
   displayMessages();
   inputTasks.value = "";
+  // добавляем обьекты в массив
+  
   // сохранение данных, и через JSON преобразуем в строки
 });
 
@@ -86,6 +88,7 @@ renderedTasks.forEach(function (item, i) {
       </li>
      `;
     //реализуем появление на сайте
+  
   });
 
   // console.log(displayMessage)
@@ -148,13 +151,23 @@ let checkBox = document.querySelectorAll(".check");
 checkBox.forEach(function(item) {
 
   item.addEventListener("change", function () {
+    const checkBoxState = checkBox.checked;
 
-    tasks[item.id].checked = !tasks[item.id].checked;
+    console.log(tasks)
+      tasks.forEach((task) => {
+        if (task.id == item.id) {
+          task.checked = checkBoxState;
+        }
+      })
+      // tasks[item.id].checked = !tasks[item.id].checked;
 
     counter.textContent = `${tasks.length} items`;
 
     
     displayMessages();
+    
+    
+    localStorage.setItem("contentItems", JSON.stringify(tasks));
   });
 
 });
@@ -187,3 +200,28 @@ deletedAll.addEventListener("click", function() {
 });
 
 
+const checkBoxAll = document.querySelector('#checkBoxAll');
+
+
+checkBoxAll.addEventListener('change', function(){
+
+  const checkBoxAllState = checkBoxAll.checked;
+
+
+  checkBox.forEach(function(item){
+    tasks.forEach((task) => {
+      if (task.id == item.id) {
+        task.checked = checkBoxAllState;
+        
+      }
+    })
+    
+    // item.checked = true;
+
+    // tasks[item.id].checked = checkBoxAllState;
+  })
+  counter.textContent = `${tasks.length} items`;
+  displayMessages();
+
+
+})

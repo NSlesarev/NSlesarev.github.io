@@ -1,25 +1,30 @@
 
 .content-items {
     display: block;
-    
-    
-
 }
-
+.shape {
+    position: absolute;
+    z-index: -10;
+    width: 100%;
+    height: 100%;
+  }
 
 
 li {
-    width: 427px;
+    width: 383px;
     height: 46px;
     background-color: var(--main-white);
     margin-left: 20px;
     border-bottom: 1px solid var(--main-grey);
     position: relative;
+    background: rgba(255, 255, 255, .7);
+	
+	backdrop-filter: blur(6px);
     
 }
 
 .check {
-    -webkit-appearance: none;
+    
     appearance: none;
     width: 20px;
     height: 20px;
@@ -54,20 +59,54 @@ li {
     text-decoration: line-through;
 }
 
-
 .deleted {
     position: absolute;
     width: 15px;
     top: 13px;
     left: 100px;
-    left: 395px;
+    left: 351px;
     cursor: pointer;
     transition: transform .3s ease;
     &:hover {
         transform: scale(1.7);
     
+    }  
+}
+
+.content-checkbox {
+    
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    left: -35px;
+    border: 5px groove var(--main-grey);
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+    transition: transform .3s ease;
+    &:hover {
+        transform: scale(1.2);
+    
+    }
+}
+
+.content-checkbox:checked {
+    // background-image: url(../../img/galka.svg);
+    background-color: rgb(22, 241, 22);
+}
+
+
+
+
+@media(max-width: 400px) {
+    
+    li{
+      width: 312px;
+    }
+
+    .deleted{
+        left: 278px;
     }
     
-    
-    
-}
+   
+  }

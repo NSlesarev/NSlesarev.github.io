@@ -1,17 +1,51 @@
+body {
+  background-image: url(../../img/fon.jpg);
+  background-size: cover;
+  background-position-x: center;
+
+  
+}
+
 
 
 .container {
     margin: auto;
     flex-direction: column;
     display: flex;
-    max-width: 470px;
+    max-width: 424px;
     box-shadow: 0 0 15px 4px #5d5d5c;
-    background-color: rgb(227, 232, 237);
     border-radius: 20px;
-    margin-top: 50px;
-    
-    
+    background: rgba(255, 255, 255, .7);
+	  -webkit-backdrop-filter: blur(6px);
+	  backdrop-filter: blur(6px);
+    animation: anim-container 10s infinite; 
+    margin-top: 100px;   
 }
+@keyframes anim-container {
+  0% {
+      border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
+      box-shadow: 15px 15px 50px rgba(0,0,0,0.2);
+  }
+  25% {
+      border-radius: 58% 42% 75% 25%/76% 46% 54% 24%;
+  }
+  50% {
+      border-radius: 50% 50% 33% 67%/55% 27% 73% 45%;
+      box-shadow: -10px -5px 50px rgba(0,0,0,0.2);
+  }
+  75% {
+      border-radius: 33% 67% 58% 42%/63% 68% 32% 37%;
+  }
+//   100% {
+//     border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
+//     box-shadow: 15px 15px 50px rgba(0,0,0,0.2);
+// }
+
+}
+
+
+
+
 .title {
     margin: auto;
    
@@ -27,11 +61,15 @@
 }
 
 #inputTasks {
-    width: 385px;
+  box-shadow: 0 0 15px 4px #5d5d5c;
+    width: 341px;
     margin-left: 20px;
     height: 40px;
     border: initial;
     transition: .4s;
+    background: rgba(255, 255, 255, .7);
+	  -webkit-backdrop-filter: blur(6px);
+	  backdrop-filter: blur(10px);
     &:focus-visible {
       border-radius: 20px 20px 0px 0px;
       outline: none;
@@ -52,7 +90,7 @@
 .icon {
     position: absolute;
     top: 18px;
-    right: 430px;
+    right: 382px;
     width: 10px;
     cursor: pointer;
     transition: transform .3s ease;
@@ -76,13 +114,24 @@
   border: none;
   cursor: pointer;
   transition: .3s;
-  &:hover {
-    color: rgb(97, 99, 99);
-  }
+  
   
     /* visibility: hidden; */
 
 }
+
+#buttonAdd::before {
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.15), transparent);
+  transform: skewX(45deg) translate(0);
+  transition: 0.5s;
+  filter: blur(0px);
+}
+
+
+
+
+
+
 
 
 .content-option {
@@ -90,7 +139,7 @@
   flex-direction: row;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 13px;
-  color: rgb(82, 86, 90);
+  color: rgb(25, 25, 25);
   // margin-top: 100px;
   margin-bottom: 10px;
   align-items: center;
@@ -99,9 +148,10 @@
   
   
   
+  
 }
 .content-option-item {
-  margin-right: 20px;
+  margin-right: 5px;
   padding: 5px;
   cursor: pointer;
   border: 1px solid transparent;
@@ -114,10 +164,12 @@
 
 
 
+
+
 .content-num {
 position: absolute;
 width: 70px;
-right: 369px;
+right: 333px;
 top: 6px;
 }
 
@@ -136,6 +188,46 @@ top: 6px;
     }
     
 }
+@media (hover: hover) {
+  #buttonAdd:hover {
+    letter-spacing: 3px;
+  }
+}
+
+@media (hover: none) {
+  #buttonAdd:active {
+    letter-spacing: 3px;
+  }
+}
 
 
 
+@media(max-width: 400px) {
+
+
+  .container{
+    max-width: 350px;
+  }
+  #inputTasks{
+    width: 270px;
+  }
+  .content-option-item{
+    margin-right: 0px;
+
+  }
+  .icon{
+    left: 32px;
+  }
+  .content-num{
+    right: 260px;
+  }
+  #buttonAdd{
+    right: 20px;
+  }
+
+  .content-option{
+    font-size: 9px;
+
+  }
+}
+  
