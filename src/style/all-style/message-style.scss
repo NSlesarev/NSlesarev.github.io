@@ -1,6 +1,8 @@
 
+
 .content-items {
     display: block;
+    
 }
 .shape {
     position: absolute;
@@ -15,12 +17,18 @@ li {
     height: 46px;
     background-color: var(--main-white);
     margin-left: 20px;
-    border-bottom: 1px solid var(--main-grey);
+    border-bottom: 1px solid rgb(83, 127, 94);
     position: relative;
-    background: rgba(255, 255, 255, .7);
-	
+    background: rgba(255, 255, 255, .1);
 	backdrop-filter: blur(6px);
+    color: white;
     
+}
+// .box:first-child {
+//     border-radius: 20px 20px 0px 0px;
+// }
+.box:last-child {
+    border-radius: 0px 0px 20px 20px;
 }
 
 .check {
@@ -28,7 +36,7 @@ li {
     appearance: none;
     width: 20px;
     height: 20px;
-    border: 1px solid var(--main-grey);
+    border: 1px solid hsl(0, 0%, 100%, .6);
     border-radius: 50%;
     position: absolute;
     top: 9px;
@@ -42,7 +50,12 @@ li {
     
 }
 .check:checked {
-    background-image: url(../../img/galka.svg);
+    background-image: url(../../img/galkaa.jpg);
+    background-size: 32px;
+    background-repeat: no-repeat;
+    background-position-x: -7px;
+    background-position-y: -6px;
+    // background-color: rgba(183, 181, 181, 0.9)
 }
 
 
@@ -52,12 +65,19 @@ li {
     display: inline-block;
     margin-left: 42px;
     margin-top: 13px;
+    // background-color: rgb(222, 223, 223, .4);
+    // border-radius: 10px;
+    padding: 3px;
         
 }
 .box > .check:checked + p {
-    color: var(--main-grey);
+    color: rgb(83, 127, 94);
     text-decoration: line-through;
+    
 }
+
+
+
 
 .deleted {
     position: absolute;
@@ -67,8 +87,11 @@ li {
     left: 351px;
     cursor: pointer;
     transition: transform .3s ease;
+    background-color: rgb(230, 235, 231, .2);
+    border-radius: 10px;
+    padding: 5px;
     &:hover {
-        transform: scale(1.7);
+        transform: scale(1.4);
     
     }  
 }
@@ -92,7 +115,7 @@ li {
 
 .content-checkbox:checked {
     // background-image: url(../../img/galka.svg);
-    background-color: rgb(22, 241, 22);
+    background-color: rgb(83, 127, 94);
 }
 
 
@@ -107,6 +130,16 @@ li {
     .deleted{
         left: 278px;
     }
+    .content-checkbox{
+        left: -67px;
+        top: 6px;
+        border-radius: 10%;
+        border: 2px solid grey;
+        &.content-checkbox:checked {
+            background-color: rgb(239, 28, 200);
+        }
+    }
+    
     
    
   }

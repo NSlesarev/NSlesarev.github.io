@@ -23,20 +23,26 @@ displayMessages();
 //обработчик события на кнопке Добавить задачу
 buttonAdd.addEventListener("click", function () {
   //обьект с данными о задачах
+
   let obj = {
     id: Date.now(),
     contentItems: inputTasks.value,
     checked: false,
   };
+
   if (inputTasks.value === "") {
 
   } else (tasks.unshift(obj));
+
   displayMessages();
+
   inputTasks.value = "";
+
   // добавляем обьекты в массив
   
   // сохранение данных, и через JSON преобразуем в строки
 });
+
 
 
 //Создаем функцию по добавлению новых окон
@@ -151,7 +157,7 @@ let checkBox = document.querySelectorAll(".check");
 checkBox.forEach(function(item) {
 
   item.addEventListener("change", function () {
-    const checkBoxState = checkBox.checked;
+    const checkBoxState = item.checked;
 
     console.log(tasks)
       tasks.forEach((task) => {
@@ -162,12 +168,14 @@ checkBox.forEach(function(item) {
       // tasks[item.id].checked = !tasks[item.id].checked;
 
     counter.textContent = `${tasks.length} items`;
-
     
-    displayMessages();
+
     
     
     localStorage.setItem("contentItems", JSON.stringify(tasks));
+    
+    displayMessages();
+    
   });
 
 });
