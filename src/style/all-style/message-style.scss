@@ -24,15 +24,11 @@ li {
     color: white;
     
 }
-// .box:first-child {
-//     border-radius: 20px 20px 0px 0px;
-// }
+
 .box:last-child {
     border-radius: 0px 0px 20px 20px;
 }
-
-.check {
-    
+.check{
     appearance: none;
     width: 20px;
     height: 20px;
@@ -49,6 +45,7 @@ li {
     }
     
 }
+
 .check:checked {
     background-image: url(../../img/galkaa.jpg);
     background-size: 32px;
@@ -59,14 +56,12 @@ li {
 }
 
 
-
 .text {
     font-family: 'Abel';
     display: inline-block;
     margin-left: 42px;
     margin-top: 13px;
-    // background-color: rgb(222, 223, 223, .4);
-    // border-radius: 10px;
+    
     padding: 3px;
         
 }
@@ -96,8 +91,34 @@ li {
     }  
 }
 
-.content-checkbox {
+  .selectAll-all {
+    font-size: small;
+  margin-right: 5px;
+  padding: 3px;
+  border: 1px solid transparent;
+  color: aliceblue;
+  transition: border .3s;
+  border-radius: 10px;
+  background: rgba(218, 224, 220, 0.4);
+  -webkit-backdrop-filter: blur(10px);
+	  backdrop-filter: blur(10px);
+    cursor: pointer;
+  &:hover {
+    border: 1px solid var(--main-white);
+  }
     
+    
+  }
+  .selectAll-label {
+    width: 50px;
+    
+
+  }
+
+
+
+.content-checkbox {
+    display: none;
     appearance: none;
     width: 20px;
     height: 20px;

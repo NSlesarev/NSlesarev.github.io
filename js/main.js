@@ -7,11 +7,11 @@ let all = document.querySelector("#all");
 let active = document.querySelector("#active");
 let completed = document.querySelector("#completed");
 let clearCompleted = document.querySelector("#clearComplited");
-let deletedIcon = document.querySelector('.deleted');
+// let deletedIcon = document.querySelector('.deleted');
 let counter = document.querySelector('.content-num');
 let deletedAll = document.querySelector('.content-deletAll');
-let deletedAlll = document.querySelector('.cont-deletAll');
-let content = document.querySelector('.content-ul');
+// let deletedAlll = document.querySelector('.cont-deletAll');
+// let content = document.querySelector('.content-ul');
 //Массив для хранения задач
 let tasks = localStorage.getItem("contentItems") ? JSON.parse(localStorage.getItem("contentItems")) : [];
 
@@ -31,8 +31,9 @@ buttonAdd.addEventListener("click", function () {
   };
 
   if (inputTasks.value === "") {
+     console.log() 
 
-  } else (tasks.unshift(obj));
+    } else (tasks.unshift(obj))
 
   displayMessages();
 
@@ -73,7 +74,7 @@ function displayMessages() {
 
 
     default: {
-      renderedTasks = tasks;
+      renderedTasks = tasks; 
       break;
     }
   }
@@ -89,7 +90,7 @@ renderedTasks.forEach(function (item, i) {
       <li class="box">
         <input class="check" type="checkbox" id='${item.id}' ${item.checked ? "checked" : ""}>
         <p class="text" id="item_${i}">${item.contentItems}</p>
-        <label class="lable-check" for='item_${i}'></label>
+        <label class="lable-check" for='item_${item.id}'></label>
         <img class='deleted' src='../src/img/deleted.png'>
       </li>
      `;
@@ -105,6 +106,12 @@ renderedTasks.forEach(function (item, i) {
 
   localStorage.setItem("contentItems", JSON.stringify(tasks));
 }
+
+
+
+
+
+
 
 all.addEventListener('click', function(){
   currentTab = 'all';
@@ -137,49 +144,39 @@ clearCompleted.addEventListener('click', function(){
 
 
 
-let box = document.querySelectorAll(".content-ul");
+
 
 iconArrow.addEventListener("click", function () {
-  // boxes.forEach(function (box) {
-    box.set("hidden");
-  // });
-  
+  let boxes = document.querySelectorAll(".box");
+  boxes.forEach(function (box) {
+    box.toggleAttribute("hidden");
+    iconArrow.classList.toggle("rotate")
+  });
 });
 
 
 
 
+document.addEventListener('change', function(event) {
 
+  if (event.target.classList.contains('check')) {
 
+    let checkBoxState = event.target.checked;
 
-let checkBox = document.querySelectorAll(".check");
+    tasks.forEach((task) => {
 
+      if (task.id == event.target.id) {
 
-checkBox.forEach(function(item) {
-
-  item.addEventListener("change", function () {
-    const checkBoxState = item.checked;
-
-    console.log(tasks)
-      tasks.forEach((task) => {
-        if (task.id == item.id) {
-          task.checked = checkBoxState;
-        }
-      })
-      // tasks[item.id].checked = !tasks[item.id].checked;
+        task.checked = checkBoxState;
+      }
+    });
 
     counter.textContent = `${tasks.length} items`;
-    
-
-    
-    
-    localStorage.setItem("contentItems", JSON.stringify(tasks));
-    
     displayMessages();
-    
-  });
-
+  }
 });
+
+
 
 
 
@@ -213,21 +210,23 @@ const checkBoxAll = document.querySelector('#checkBoxAll');
 
 
 checkBoxAll.addEventListener('change', function(){
+  
+  let checkBox = document.querySelectorAll(".check");
 
   const checkBoxAllState = checkBoxAll.checked;
 
 
   checkBox.forEach(function(item){
+
     tasks.forEach((task) => {
+
       if (task.id == item.id) {
+        
         task.checked = checkBoxAllState;
         
       }
     })
     
-    // item.checked = true;
-
-    // tasks[item.id].checked = checkBoxAllState;
   })
   counter.textContent = `${tasks.length} items`;
   displayMessages();

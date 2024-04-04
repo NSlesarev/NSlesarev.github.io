@@ -14,9 +14,9 @@
         <div class="content">
             <div class="content-text__icon">
                 <input id="inputTasks" type="text" placeholder="Введите задачу">
-                <button class="content-text_aicon">
+                <div class="content-text_aicon">
                     <img class="icon" src="/src/img/strelka.png" alt="Стрелка">
-                </button>
+                </div>
                 <img src="/src/img/deletAll.png" class="content-deletAll" alt="3" >
                 <button id="buttonAdd">Добавить задачу</button>
             </div>
@@ -25,8 +25,10 @@
             </div>
             <div class="content-option">
                 <div class="content-num">0 items left</div>
-                <input class="content-checkbox" type="checkbox" id="checkBoxAll">
-                <label for="checkBoxAll"></label>
+                <div class="selectAll">      
+                    <input class="content-checkbox" type="checkbox" id="checkBoxAll">
+                    <label class="selectAll-label" for="checkBoxAll"><span class="selectAll-all">Select all</span></label>
+                </div>      
                 <button class="content-option-item" id="all">All</button>
                 <button class="content-option-item" id="active">Active</button>
                 <button class="content-option-item" id="completed">Completed</button>

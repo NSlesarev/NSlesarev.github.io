@@ -94,11 +94,19 @@ body {
     width: 10px;
     cursor: pointer;
     transition: transform .3s ease;
-    &:hover {
-        transform: scale(1.7);
+    transform: rotate(0deg);
+
+    // &:hover{
+    //     transform: rotate(180deg);
+        
     
-    }
+    // }
 }
+
+.rotate {
+  transform: rotate(180deg);
+}
+
 
 
 #buttonAdd {
@@ -113,7 +121,13 @@ body {
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  transition: .3s;
+  // transition: .3s;
+  transition: transform .3s ease;
+    &:hover {
+        // transform: rotate(18000000deg);
+        transform: scale(1.1);
+    
+    }
 
 }
 
@@ -140,7 +154,7 @@ body {
   // margin-top: 100px;
   margin-bottom: 10px;
   align-items: center;
-  margin-left: 150px;
+  margin-left: 95px;
   position: relative;
 
 }
@@ -166,10 +180,11 @@ body {
 
 
 
+
 .content-num {
 position: absolute;
-width: 70px;
-right: 333px;
+width: 60px;
+right: 344px;
 top: 6px;
 border-radius: 10px;
 color: var(--main-white);
@@ -178,7 +193,6 @@ transition: .4s;
 background: rgb(83, 127, 94, .5);
 -webkit-backdrop-filter: blur(3px);
 backdrop-filter: blur(3px);
-padding-left: 1px;
 text-align: center;
 }
 
