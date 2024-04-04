@@ -114,9 +114,6 @@ body {
   border: none;
   cursor: pointer;
   transition: .3s;
-  
-  
-    /* visibility: hidden; */
 
 }
 
@@ -202,13 +199,13 @@ text-align: center;
 }
 @media (hover: hover) {
   #buttonAdd:hover {
-    letter-spacing: 3px;
+    
   }
 }
 
 @media (hover: none) {
   #buttonAdd:active {
-    letter-spacing: 3px;
+    
   }
 }
 

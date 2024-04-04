@@ -137,12 +137,13 @@ clearCompleted.addEventListener('click', function(){
 
 
 
-let boxes = document.querySelectorAll(".box");
+let box = document.querySelectorAll(".content-ul");
 
 iconArrow.addEventListener("click", function () {
-  boxes.forEach(function (box) {
-    box.toggleAttribute("hidden");
-  });
+  // boxes.forEach(function (box) {
+    box.set("hidden");
+  // });
+  
 });
 
 
