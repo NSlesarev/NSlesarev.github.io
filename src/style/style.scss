@@ -4,7 +4,7 @@
 
 
 @import url(/src/style/all-style/container-style.scss);
-@import url(/src/style/all-style/message-style.scss);
+
 /* @import url(/src/style/all-style.css/reset.css);
 @import url(/src/style/all-style.css/fonts.css);
 @import url(/src/style/all-style.css/reset.css); */
@@ -12,11 +12,34 @@
 
 
 :root {
-    --main-grey: rgb(133, 129, 129);
+    
     --main-white: #fafafa;
     --main-greyWhite: #e0d1d1;
+
+    --main-grey: rgb(133, 129, 129);
+    --main-grey-01:rgba(255, 255, 255, .1);
+    --main-grey-03:rgba(255, 255, 255, .3);
+    --main-grey-04:rgb(230, 235, 231, .4);
+    --main-grey-05: rgba(255, 255, 255, .5);
+    --main-grey-06:hsl(0, 0%, 100%, .6);
+    
+
+    --main-grin:rgb(83, 127, 94);
+    --main-grin-0:rgb(101, 139, 110);
+    --main-grin-03:rgb(83, 127, 94, 0.3)
+    --main-grin-04: rgb(83, 127, 94, .4);
+    --main-grin-07:rgb(83, 127, 94, 0.7);
+    
+    
+    --main-black-02:rgba(0, 0, 0, 0.2);
+    --main-black-02:rgba(0,0,0,0.2);
+    --main-black-09:rgb(56, 59, 58, 0.9);
+
 }
 
 
 // lightcss
+
+
+
 

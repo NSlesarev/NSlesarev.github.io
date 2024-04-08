@@ -7,12 +7,11 @@ let all = document.querySelector('#all');
 let active = document.querySelector('#active');
 let completed = document.querySelector('#completed');
 let clearCompleted = document.querySelector('#clearComplited');
-// let deletedIcon = document.querySelector('.deleted');
+
 let counter = document.querySelector('.content-num');
 let deletedAll = document.querySelector('.content-deletAll');
-// let deletedAlll = document.querySelector('.cont-deletAll');
-// let content = document.querySelector('.content-ul');
-//Массив для хранения задач
+let selectA = document.querySelector('.selectAll-all');
+
 let tasks = localStorage.getItem('contentItems')
 	? JSON.parse(localStorage.getItem('contentItems'))
 	: [];
@@ -43,6 +42,12 @@ buttonAdd.addEventListener('click', function () {
 
 	// сохранение данных, и через JSON преобразуем в строки
 });
+inputTasks.addEventListener('keypress', function (e) {
+	let key = e.which || e.keyCode;
+	if (key === 13) {
+		buttonAdd.click();
+	}
+});
 
 //Создаем функцию по добавлению новых окон
 function displayMessages() {
@@ -72,7 +77,7 @@ function displayMessages() {
 			break;
 		}
 	}
-
+	counter.textContent = `${renderedTasks.length} items`;
 	//прописать каждое условие на каждое значение Таба,
 
 	// обратиться к группе, и через фореач накинуть на каждый элемент обработчик событий, и затем в зависимости от переменной каренТаб менять стили в дереве для активного таба
@@ -94,8 +99,6 @@ function displayMessages() {
 
 	contentItems.innerHTML = displayMessage;
 
-	counter.textContent = `${tasks.length} items`;
-
 	localStorage.setItem('contentItems', JSON.stringify(tasks));
 }
 
@@ -106,8 +109,6 @@ all.addEventListener('click', function () {
 
 active.addEventListener('click', function () {
 	currentTab = 'active';
-
-	counter.textContent = `${tasks.length} items`;
 
 	displayMessages();
 });
@@ -128,9 +129,10 @@ clearCompleted.addEventListener('click', function () {
 iconArrow.addEventListener('click', function () {
 	let boxes = document.querySelectorAll('.box');
 	boxes.forEach(function (box) {
-		box.toggleAttribute('hidden');
-		iconArrow.classList.toggle('rotate');
+		console.log(box);
+		box.classList.toggle('hidden');
 	});
+	iconArrow.classList.toggle('rotate');
 });
 
 document.addEventListener('change', function (event) {
@@ -143,7 +145,6 @@ document.addEventListener('change', function (event) {
 			}
 		});
 
-		counter.textContent = `${tasks.length} items`;
 		displayMessages();
 	}
 });
@@ -172,6 +173,11 @@ checkBoxAll.addEventListener('change', function () {
 	let checkBox = document.querySelectorAll('.check');
 
 	const checkBoxAllState = checkBoxAll.checked;
+	if (checkBoxAllState == true) {
+		selectA.innerHTML = 'Remove selection';
+	} else {
+		selectA.innerHTML = 'Select all';
+	}
 
 	checkBox.forEach(function (item) {
 		tasks.forEach((task) => {
