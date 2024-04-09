@@ -112,12 +112,14 @@ body {
   cursor: pointer;
   transition: transform .3s ease;
   transform: rotate(0deg);
-  
+    &:hover{
+      background-color: var(--main-grin-04);
+    }
   }
   .rotate {
       transform: rotate(180deg);
       background: none;
-    }
+  }
     
     
 .content-deletAll {
@@ -255,8 +257,6 @@ body {
       text-decoration: line-through;
       
   }
-.lable-check {
-}
 
 .deleted {
   margin-right: 7px;
@@ -278,6 +278,7 @@ body {
   align-items: baseline;
   overflow: hidden;
   background: var(--main-grey-04);
+  border-radius: 0px 0px 10px 10px;
   
 }
 .content-o{
@@ -325,6 +326,13 @@ body {
   }
   
 }
+
+.active {
+  background-color: var(--main-black-09);
+  color: white;
+} 
+
+
   
 
 

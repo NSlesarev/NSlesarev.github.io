@@ -134,8 +134,7 @@ iconArrow.addEventListener('click', function () {
 	});
 	iconArrow.classList.toggle('rotate');
 });
-
-document.addEventListener('change', function (event) {
+contentItems.addEventListener('change', function (event) {
 	if (event.target.classList.contains('check')) {
 		let checkBoxState = event.target.checked;
 
