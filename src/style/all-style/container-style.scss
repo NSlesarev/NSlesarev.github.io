@@ -2,9 +2,6 @@ body {
   background-image: url(../../img/foon.jpg);
   background-size: cover;
   background-position-x: center;
-  
-
-  
 }
 
 .container {
@@ -20,8 +17,8 @@ body {
   animation: anim-container 10s infinite; 
   margin-top: 65px; 
   font-family: 'Castoro Titling'; 
-  
 }
+
 @keyframes anim-container {
   0% {
       border-radius: 10% 10% 10% 10%;
@@ -36,24 +33,22 @@ body {
   }
   75% {
     border-radius: 33% 67% 58% 42%/63% 68% 32% 37%;
-}
+  }
   100% {
     border-radius: 10% 10% 10% 10%;
     box-shadow: 15px 15px 50px var( --main-black-02);
-}
+  }
 
 }
+
 .title {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.title-text {
   font-size: 70px;
   color:var(--main-grin-0);
 }  
   
-
 .content {
   margin: auto;
   width: 400px;
@@ -64,7 +59,8 @@ body {
   margin-bottom: 50px;
   
 }
-.content-text__icon {
+
+.content-text {
   height: 30px;
   display: flex;
   flex-direction: row;
@@ -75,21 +71,22 @@ body {
 #inputTasks {
   width: 270px;
   border: initial;
-    transition: .4s;
-	  -webkit-backdrop-filter: blur(6px);
-	  backdrop-filter: blur(6px);
+  transition: .4s;
+	-webkit-backdrop-filter: blur(6px);
+	backdrop-filter: blur(6px);
+
     &:focus-visible {
-     
       outline: none;
     }
 }
+
 #inputTasks[type=text] {
     padding-left: 10px;
     color:var(--main-grin);
     font-family: 'Bubbler One'; 
 }  
 
-#buttonAdd {
+#addButton {
   background-color: var(--main-grey-05);
   color: var(--main-grin);
   font-family: 'Bubbler One'; 
@@ -99,28 +96,31 @@ body {
   border: none;
   cursor: pointer;
   transition: .1s;
+
   &:hover {
     background-color: var(--main-grin-04);
   }  
 }
-.icon{
+
+.content-text__img-icon{
   padding: 10px;
   width: 10px;
   border-radius: 10px 0px 0px 0px;
   cursor: pointer;
   transition: transform .3s ease;
   transform: rotate(0deg);
+
     &:hover{
       background-color: var(--main-grin-04);
     }
   }
+
   .rotate {
       transform: rotate(180deg);
       background: none;
   }
     
-    
-.content-deletAll {
+.deleteAllButton {
   width: 20px;
   height: 20px;
   cursor: pointer;
@@ -136,42 +136,19 @@ body {
   }  
 }
 
-.selectAll {
+.select-all {
   display: flex;
   flex-direction: row;
   background-color:  var(--main-grey-04);
   justify-content: center;
-  
-  
-
 }
-.content-checkbox {
+
+.select-all__checkbox {
   display: none;
   appearance: none;
-
-  // width: 40px;
-  // height: 25px;
-  // border: 1px solid hsl(0, 0%, 100%, .6);
-  // border-radius: 8px;
-  // cursor: pointer;
-  // transition: transform .3s ease;
-  // &:hover {
-  //       transform: scale(1.1);
-    
-  // }
-  // &:checked{
-  //   background-color: rgb(83, 127, 94, 0.7);
-  //   background-size: 32px;
-  //   background-repeat: no-repeat;
-  //   background-position-x: -7px;
-  //   background-position-y: -6px;
-  // }
 }
 
-
-
-.selectAll-label {
-  
+.select-all__label {
   background-color: var(--main-grey-05);
   font-family: 'Bubbler One'; 
   font-style: normal;
@@ -180,23 +157,22 @@ body {
   cursor: pointer;
   padding: 3px;
   transition: 0.1s;
+
     &:hover {
       background-color: var(--main-grin-03);
     } 
-  
-
 }
-.selectAll-all {
+
+.select-all__all {
   color: var(--main-grin);
   
 }
 
-.content-items {
+.content-list__tasks {
   display: flex;
   flex-direction: column;
-  
-  
 }
+
 .box {
   display: flex;
   flex-direction: row;
@@ -208,17 +184,13 @@ body {
   background: var(--main-grey-01);
 	backdrop-filter: blur(6px);
   color: var(--main-white);
-  
-  
-
 }
 
 .hidden {
-  
   display: none;
 }
+
 .check {
-  
   appearance: none;
   width: 20px;
   height: 20px;
@@ -231,6 +203,7 @@ body {
     
   }
 }
+
 .check:checked {
   background-color: var(--main-grin-07);
   background-size: 32px;
@@ -238,6 +211,7 @@ body {
   background-position-x: -7px;
   background-position-y: -6px;
   }
+
 .text {
   flex: auto;
   font-family: 'Abel';
@@ -246,10 +220,10 @@ body {
   font-family: 'Bubbler One'; 
   overflow: hidden;
 }
+
 .box > .check:checked + p {
       color: var(--main-grin);
-      text-decoration: line-through;
-      
+      text-decoration: line-through;  
   }
 
 .deleted {
@@ -259,6 +233,7 @@ body {
   transition: transform .3s ease;
   padding: 5px;
   transition: .3s;
+
   &:hover {
     background-color: var(--main-grin-07);
     border-radius: 10px;
@@ -266,7 +241,7 @@ body {
   }  
 }
 
-.content-option {
+.tabs-container {
   display: flex;
   flex-direction: row;
   align-items: baseline;
@@ -275,24 +250,17 @@ body {
   border-radius: 0px 0px 10px 10px;
   
 }
-.content-o{
-  margin-left: 5px;
-  
-}
-.content-num {
-  width: 55px;
+
+.tabs-container__counter {
   font-family: 'Bubbler One'; 
   font-size: 16px;
+  margin-left: 5px;
 }
 
-.content-option-item {
+.tabs-container__tab-item {
   padding: 3px;
   width: auto;
-  // border: 1px solid transparent;
   color: var(--main-grin);
-  // border-radius: 10px;
-  
-
   background-color: var(--main-grey-04);
   font-family: 'Bubbler One'; 
   font-style: normal;
@@ -309,22 +277,8 @@ body {
   &:hover {
     background: var(--main-grin-04);
   }
-  &:active{
-    background-color: var(--main-black-09);
-    color: white;
-    
-  }
-  &:focus{
-    background-color: var(--main-black-09);
-    color: white;
-  }
-  
 }
 
-.active {
-  background-color: var(--main-black-09);
-  color: white;
-} 
 
 
   

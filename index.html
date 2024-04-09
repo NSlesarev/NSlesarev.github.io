@@ -7,38 +7,33 @@
     <title>ToDo - Лист</title>
 </head>
 <body>
-    <section class="container">
-        <div class="title">
-            <h1 class="title-text">todos</h1>
-        </div>
+    <main class="container">
+        <h1 class="title">todos</h1>
         <div class="content">
-            <div class="content-text__icon">
-                <div class="content-text_aicon">
-                    <img class="icon" src="/src/img/strelka.png" alt="Стрелка">
+            <div class="content-text">
+                <div class="content-text__img">
+                    <img class="content-text__img-icon" src="/src/img/strelka.png" alt="стрелка открывающая/закрывающая задачи">
                 </div>
                 <input id="inputTasks" type="text"  autocomplete="off" placeholder="Enter a task">
-                <button id="buttonAdd">Add task</button>
-                <img src="/src/img/deletAll.png" class="content-deletAll" alt="3" >
+                <button id="addButton">Add task</button>
+                <img src="/src/img/deletAll.png" class="deleteAllButton" alt="кнопка удалить все" >
             </div>
-            <div class="selectAll">      
-                <input class="content-checkbox" type="checkbox" id="checkBoxAll">
-                <label class="selectAll-label" for="checkBoxAll"><span class="selectAll-all">Select all</span></label>
+            <div class="select-all">      
+                <input class="select-all__checkbox" type="checkbox" id="checkBoxAll">
+                <label class="select-all__label" for="checkBoxAll"><span class="select-all__all">Select all</span></label>
             </div>
-            <div class="content-ul">
-                <ul class="content-items"></ul>
+            <div class="content-list">
+                <ul class="content-list__tasks"></ul>
             </div>
-            <div class="content-option">
-                <div class="content-o">
-                    <div class="content-num">0 items left</div>
-                </div>    
-                   
-                <button class="content-option-item" id="all">All</button>
-                <button class="content-option-item" id="active">Active</button>
-                <button class="content-option-item" id="completed">Completed</button>
-                <button class="content-option-item" id="clearComplited">Clear completed</button>
+            <div class="tabs-container">
+                <div class="tabs-container__counter">0 items left</div>
+                <button class="tabs-container__tab-item" id="all">All</button>
+                <button class="tabs-container__tab-item" id="active">Active</button>
+                <button class="tabs-container__tab-item" id="completed">Completed</button>
+                <button class="tabs-container__tab-item" id="clearComplited">Clear completed</button>
             </div>
         </div>
-    </section>
+    </main>
     <script src="/js/main.js"></script>
 </body>
 </html>
