@@ -1,0 +1,37 @@
+.tabs-container {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    overflow: hidden;
+    background: var(--main-grey-04);
+    border-radius: 0px 0px 10px 10px;
+    
+  }
+  
+  .tabs-container__counter {
+    font-family: 'Bubbler One'; 
+    font-size: 16px;
+    margin-left: 5px;
+  }
+  
+  .tabs-container__tab-item {
+    padding: 3px;
+    width: auto;
+    color: var(--main-grin);
+    background-color: var(--main-grey-04);
+    font-family: 'Bubbler One'; 
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: .1s;
+    margin-left: 25px;
+    -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    cursor: pointer;
+  
+    &:hover {
+      background: var(--main-grin-04);
+    }
+  }
