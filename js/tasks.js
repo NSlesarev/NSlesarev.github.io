@@ -1,8 +1,8 @@
 import { renderTasks } from './renderTasksFunc';
-import { addButton, counter, inputTasks, selectStyle } from './const';
+import { addButton, inputTasks } from './const';
 import { tabs } from './const';
 import { deleteAllButton } from './const';
-import { filterTasks } from './filterTasksFunc';
+import _ from 'lodash';
 
 export let tasks = localStorage.getItem('contentItems')
 	? JSON.parse(localStorage.getItem('contentItems'))
@@ -15,7 +15,7 @@ renderTasks();
 addButton.addEventListener('click', function () {
 	let obj = {
 		id: Date.now(),
-		contentItems: inputTasks.value,
+		contentItems: _.escape(inputTasks.value),
 		checked: false,
 	};
 

@@ -37,6 +37,9 @@
   "dependencies": {
   
     
+  "lodash": "^4.17.21",
+  
+    
   "sass": "^1.72.0"
   
   }

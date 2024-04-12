@@ -7,24 +7,15 @@ import {
 	selectStyle,
 } from './const';
 import { tasks, currentTab } from './tasks';
-// import { checkBoxState } from './checkBox';
+
+// import _ from 'lodash';
 
 export function renderTasks() {
 	let displayMessage = '';
 
-	console.log(checkBoxAll.checked);
-
 	const renderedTasks = filterTasks(tasks, currentTab);
 
 	counter.textContent = `${renderedTasks.length} items`;
-
-	if (renderedTasks.length > 0) {
-		selectStyle.classList.remove('hidden');
-		selectStyle.classList.add('visible');
-	} else {
-		selectStyle.classList.remove('visible');
-		selectStyle.classList.add('hidden');
-	}
 
 	renderedTasks.forEach(function (item) {
 		displayMessage += `
@@ -40,6 +31,14 @@ export function renderTasks() {
 	const CheckAll = renderedTasks.every((item) => {
 		return item.checked !== false;
 	});
+
+	if (renderedTasks.length > 0) {
+		selectStyle.classList.remove('hidden');
+		selectStyle.classList.add('visible');
+	} else {
+		selectStyle.classList.remove('visible');
+		selectStyle.classList.add('hidden');
+	}
 
 	checkBoxAll.checked = CheckAll;
 	selectA.innerHTML = CheckAll ? 'Remove selection' : 'Select all';

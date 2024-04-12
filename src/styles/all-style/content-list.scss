@@ -36,11 +36,15 @@
   }
   
   .check:checked {
-    background-color: var(--main-grin-07);
-    background-size: 32px;
+    background-image: url(/src/img/alb.png);
     background-repeat: no-repeat;
-    background-position-x: -7px;
-    background-position-y: -6px;
+    // background-position-y: 
+    // background-color: var(--main-grin-07);
+    background-size: 18px;
+    background-position-x: 0.6px;
+    background-position-y: -4px;
+    border: none;
+    border-radius: 7px;
     }
   
   .text {
