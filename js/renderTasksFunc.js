@@ -8,8 +8,6 @@ import {
 } from './const';
 import { tasks, currentTab } from './tasks';
 
-// import _ from 'lodash';
-
 export function renderTasks() {
 	let displayMessage = '';
 

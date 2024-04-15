@@ -1,35 +1,35 @@
 .select-all {
-    display: flex;
-    flex-direction: row;
-    background-color:  var(--main-grey-04);
-    justify-content: center;
-    visibility: hidden;
-  }
+  display: flex;
+  flex-direction: row;
+  background-color:  var(--main-grey-04);
+  justify-content: center;
+  visibility: hidden;
+}
+
 .visible {
   visibility: visible;
 }
   
-  .select-all__checkbox {
-    display: none;
-    appearance: none;
-  }
+.select-all__checkbox {
+  display: none;
+  appearance: none;
+}
   
-  .select-all__label {
-    background-color: var(--main-grey-05);
-    font-family: 'Bubbler One'; 
-    font-style: normal;
-    font-weight: 400;
-    border: none;
-    cursor: pointer;
-    padding: 3px;
-    transition: 0.1s;
+.select-all__label {
+  background-color: var(--main-grey-05);
+  font-family: 'Bubbler One'; 
+  font-style: normal;
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+  padding: 3px;
+  transition: 0.1s;
   
-      &:hover {
-        background-color: var(--main-grin-03);
-      } 
+    &:hover {
+      background-color: var(--main-grin-03);
+    } 
   }
   
   .select-all__all {
     color: var(--main-grin);
-    
   }

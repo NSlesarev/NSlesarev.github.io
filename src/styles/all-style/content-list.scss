@@ -30,22 +30,19 @@
     cursor: pointer;
     transition: transform .3s ease;
     &:hover {
-          transform: scale(1.2);
-      
+      transform: scale(1.2);
     }
   }
   
   .check:checked {
     background-image: url(/src/img/alb.png);
     background-repeat: no-repeat;
-    // background-position-y: 
-    // background-color: var(--main-grin-07);
     background-size: 18px;
     background-position-x: 0.6px;
     background-position-y: -4px;
     border: none;
     border-radius: 7px;
-    }
+  }
   
   .text {
     flex: auto;
@@ -57,9 +54,9 @@
   }
   
   .box > .check:checked + p {
-        color: var(--main-grin);
-        text-decoration: line-through;  
-    }
+    color: var(--main-grin);
+    text-decoration: line-through;  
+  }
   
   .deleted {
     margin-right: 7px;
@@ -72,6 +69,5 @@
     &:hover {
       background-color: var(--main-grin-07);
       border-radius: 10px;
-  
     }  
   }
