@@ -1,7 +1,7 @@
-import { checkBoxAll, counter } from './const';
-import { filterTasks } from './filterTasksFunc';
-import { renderTasks } from './renderTasksFunc';
-import { currentTab, tasks } from './tasks';
+import { checkBoxAll, counter } from './selectors';
+import { filterTasks } from './filterTasksAndDeletedTasks';
+import { renderTasks } from './renderTasks';
+import { tasks, currentTab } from './filterTasksAndDeletedTasks';
 
 checkBoxAll.addEventListener('change', function () {
 	const checkBoxAllState = checkBoxAll.checked;

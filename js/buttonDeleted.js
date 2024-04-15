@@ -1,6 +1,6 @@
-import { renderTasks } from './renderTasksFunc';
-import { contentItems } from './const';
-import { tasks } from './tasks';
+import { renderTasks } from './renderTasks';
+import { contentItems } from './selectors';
+import { tasks } from './filterTasksAndDeletedTasks';
 
 contentItems.addEventListener('click', function (event) {
 	if (event.target.classList.contains('deleted')) {

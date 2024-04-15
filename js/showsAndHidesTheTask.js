@@ -1,4 +1,4 @@
-import { iconArrow } from './const';
+import { iconArrow } from './selectors';
 
 iconArrow.addEventListener('click', function () {
 	let boxes = document.querySelectorAll('.box');

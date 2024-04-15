@@ -1,40 +1,34 @@
-import { renderTasks } from './renderTasksFunc';
-import { addButton, inputTasks } from './const';
-import { tabs } from './const';
-import { deleteAllButton } from './const';
-import _ from 'lodash';
-
+import { tabs } from './selectors';
+import { renderTasks } from './renderTasks';
+import { deleteAllButton } from './selectors';
+export let currentTab = 'all';
 export let tasks = localStorage.getItem('contentItems')
 	? JSON.parse(localStorage.getItem('contentItems'))
 	: [];
 
-export let currentTab = 'all';
-
 renderTasks();
-
-addButton.addEventListener('click', function () {
-	let obj = {
-		id: Date.now(),
-		contentItems: _.escape(inputTasks.value),
-		checked: false,
-	};
-
-	if (inputTasks.value === '') {
-		console.log();
-	} else tasks.unshift(obj);
-
-	renderTasks();
-
-	inputTasks.value = '';
-});
-
-inputTasks.addEventListener('keypress', function (e) {
-	let key = e.which || e.keyCode;
-	if (key === 13) {
-		addButton.click();
+export function filterTasks(tasks, currentTab) {
+	let renderedTasks = [];
+	switch (currentTab) {
+		case 'active': {
+			renderedTasks = tasks.filter(function (item) {
+				return item.checked === false;
+			});
+			break;
+		}
+		case 'completed': {
+			renderedTasks = tasks.filter(function (item) {
+				return item.checked === true;
+			});
+			break;
+		}
+		default: {
+			renderedTasks = tasks;
+			break;
+		}
 	}
-});
-
+	return renderedTasks;
+}
 tabs.forEach(function (el) {
 	el.addEventListener('click', (event) => {
 		tabs.forEach((item) => {
@@ -51,7 +45,6 @@ tabs.forEach(function (el) {
 			currentTab = 'all';
 		} else if (event.target.id == 'active') {
 			currentTab = 'active';
-			// selectStyle.classList.toggle('hidden');
 		} else if (event.target.id == 'completed') {
 			currentTab = 'completed';
 		} else {

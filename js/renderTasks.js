@@ -1,12 +1,14 @@
-import { filterTasks } from './filterTasksFunc';
+import { filterTasks } from './filterTasksAndDeletedTasks';
 import {
 	counter,
 	contentItems,
 	checkBoxAll,
 	selectA,
 	selectStyle,
-} from './const';
-import { tasks, currentTab } from './tasks';
+} from './selectors';
+import { currentTab } from './filterTasksAndDeletedTasks';
+import { tasks } from './filterTasksAndDeletedTasks';
+// import { tasks, currentTab } from '.';
 
 export function renderTasks() {
 	let displayMessage = '';
