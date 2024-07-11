@@ -1,24 +1,181 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" sizes="32x32" href='/assets/Favicon-B2EkWv0V.png' type="image/png">
-    <link rel="apple-icon" sizes="144x144" href='/assets/Favicon-B2EkWv0V.png'>
-    <link rel="apple-icon" sizes="114x114" href='/assets/Favicon-B2EkWv0V.png'>
-    <link rel="apple-icon" sizes="72x72" href='/assets/Favicon-B2EkWv0V.png'>
-    <title>Oleg Chulakov</title>
-    <meta property="og:title" content="Oleg Chulakov" />
-    <meta property="og:type" content="website"/>
-    <meta property="og:description" content="Founder of Chulakov Global. IT entrepreneur, triathlete." />
-    <meta property="og:image" content="https://d3n32ilufxuvd1.cloudfront.net/6266a19187ce76002c46fb57/upload-e5b17155-6f76-4e1b-b8f4-3d44bb87d26c.jpg" />
-    <meta name="twitter:card" content="summary_large_image"/>
-    <meta property="og:url" content="https://oleg.chulakov.com/" />
-    <script type="module" crossorigin src="/assets/index-DOytlKeC.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-B8r1M3c3.css">
-  </head>
-  <body style="-webkit-text-size-adjust: 100%; -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased;">
-    <div id="root"></div>
-    <script src="https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js"></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Avito</title>
+		<!-- Google Tag Manager -->
+		<script>
+			(function (w, d, s, l, i) {
+				w[l] = w[l] || [];
+				w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+				var f = d.getElementsByTagName(s)[0],
+					j = d.createElement(s),
+					dl = l != 'dataLayer' ? '&l=' + l : '';
+				j.async = true;
+				j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+				f.parentNode.insertBefore(j, f);
+			})(window, document, 'script', 'dataLayer', 'GTM-MNC9HXP');
+		</script>
+		<!-- End Google Tag Manager -->
+		<script
+			src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU"
+			type="text/javascript"
+		></script>
+		<script>
+			ymaps.ready(init);
+
+			function addPlacemarks(responseData) {
+				responseData.developments.map((item) => {
+					var lat = item.lat;
+					var lon = item.lon;
+
+					var placemark = new ymaps.Placemark(
+						[lat, lon],
+						{},
+						{
+							iconLayout: 'default#image',
+							iconImageHref: './images/purpleCookie.png',
+							iconImageSize: [50, 50],
+						},
+					);
+
+					// Add event listener for the placemark
+					placemark.events.add('click', function (e) {
+						var modal = document.getElementById('modal');
+						if (modal) {
+							modal.setAttribute('data-active', 'true');
+						}
+					});
+
+					myMap.geoObjects.add(placemark);
+				});
+			}
+
+			var myMap;
+			var xhr = new XMLHttpRequest();
+			var url = '/web/1/developments-advice/cookieLandingMap';
+
+			function init() {
+				myMap = new ymaps.Map('map', {
+					center: [55.76, 37.64],
+					zoom: 10,
+					mode: 'vector',
+				});
+
+				// // Adding a default placemark
+				// var defaultPlacemark = new ymaps.Placemark(
+				// 	[55.76, 37.64],
+				// 	{},
+				// 	{
+				// 		iconLayout: 'default#image',
+				// 		iconImageHref: './images/purpleCookie.png',
+				// 		iconImageSize: [50, 50],
+				// 	},
+				// );
+
+				// defaultPlacemark.events.add('click', function (e) {
+				// 	var modal = document.getElementById('modal');
+				// 	if (modal) {
+				// 		modal.setAttribute('data-active', 'true');
+				// 	}
+				// });
+
+				// myMap.geoObjects.add(defaultPlacemark);
+
+				sendRequest(); // Send request on initial load
+
+				myMap.events.add('boundschange', function (event) {
+					const coords = event.get('newBounds');
+					updateData(coords);
+				});
+			}
+
+			function sendRequest() {
+				xhr.open('POST', url, true);
+				xhr.setRequestHeader('Content-Type', 'application/json');
+				var data = JSON.stringify({
+					latBottom: 55.57770063432852,
+					latTop: 56.00171210479398,
+					lonLeft: 36.46011631161937,
+					lonRight: 38.63540928036939,
+				});
+
+				xhr.onreadystatechange = function () {
+					if (xhr.readyState === XMLHttpRequest.DONE) {
+						if (xhr.status === 200) {
+							var responseData = JSON.parse(xhr.response);
+							addPlacemarks(responseData); // Add placemarks on initial load
+						} else {
+							console.error('Произошла ошибка:', xhr.status);
+						}
+					}
+				};
+
+				xhr.send(data);
+			}
+
+			function updateData(coords) {
+				var data = JSON.stringify({
+					latBottom: coords[0][0],
+					latTop: coords[1][0],
+					lonLeft: coords[0][1],
+					lonRight: coords[1][1],
+				});
+
+				xhr.open('POST', url, true);
+				xhr.setRequestHeader('Content-Type', 'application/json');
+
+				xhr.onreadystatechange = function () {
+					if (xhr.readyState === XMLHttpRequest.DONE) {
+						if (xhr.status === 200) {
+							var responseData = JSON.parse(xhr.response);
+							addPlacemarks(responseData);
+						} else {
+							console.error('Произошла ошибка:', xhr.status);
+						}
+					}
+				};
+
+				xhr.send(data);
+			}
+		</script>
+		<script src="https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js"></script>
+		<style>
+			@font-face {
+				font-family: Aeroport;
+				src: url(/fonts/Aeroport-regular.woff2);
+				font-weight: 400;
+			}
+
+			@font-face {
+				font-family: Aeroport;
+				src: url(/fonts/Aeroport-bold.woff2);
+				font-weight: 600;
+			}
+
+			@font-face {
+				font-family: Aeroport;
+				src: url(/fonts/Aeroport-medium.woff2);
+				font-weight: 500;
+			}
+		</style>
+		<script type="module" crossorigin src="/assets/index-tZV5OPoQ.js"></script>
+		<link rel="stylesheet" crossorigin href="/assets/index-YM3-q0_k.css">
+	</head>
+	<body>
+		<!-- Google Tag Manager (noscript) -->
+		<noscript
+			><iframe
+				src="https://www.googletagmanager.com/ns.html?id=GTM-MNC9HXP"
+				height="0"
+				width="0"
+				style="display: none; visibility: hidden"
+			></iframe
+		></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+		<div id="root"></div>
+		<div id="map"></div>
+		<div id="modal"></div>
+	</body>
 </html>
